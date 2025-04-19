@@ -5,6 +5,10 @@ import { DISPOSABLE_EMAIL_SERVICES, MailServices } from './utils/constant';
 import { Headless } from './lib/headless';
 
 export * from './utils/helper';
+export * from './utils/constant';
+export * from './types';
+export * from './lib/fetch-2.0';
+export * from './lib/headless';
 
 export type DisposableServiceOptions = {
   /**
@@ -14,7 +18,7 @@ export type DisposableServiceOptions = {
   mailService?: MailServices;
 }
 
-class DisposableService {
+export class DisposableEmailHelper {
   private _mailSvc: DisposableEmailService;
 
   constructor(options: DisposableServiceOptions) {
@@ -58,4 +62,3 @@ class DisposableService {
     ];
   }
 }
-export default DisposableService;

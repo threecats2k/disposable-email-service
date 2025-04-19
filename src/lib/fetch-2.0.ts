@@ -3,8 +3,6 @@ import http2, { OutgoingHttpHeaders } from 'http2';
 const fetchV2 = async (url: string, options: OutgoingHttpHeaders): Promise<Record<string, any>> => {
   return new Promise((resolve, reject) => {
     const client = http2.connect(url + options[':path']);
-    console.log(url);
-    console.log(options[':path']);
     const req = client.request({
       ':method': options[':method'],
       ':path': options[':path'],
