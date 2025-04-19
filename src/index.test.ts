@@ -1,4 +1,4 @@
-import DisposableService, { DisposableServiceOptions } from './index';
+import { DisposableEmailHelper, DisposableServiceOptions } from './index';
 import fetchV2 from './lib/fetch-2.0';
 import { MailServices } from './utils/constant';
 
@@ -10,7 +10,7 @@ describe('DisposableService', () => {
   });
 
   it('should initialize with the default mail service', () => {
-    const service = new DisposableService({});
+    const service = new DisposableEmailHelper({});
     expect(service).toBeDefined();
   });
 
@@ -18,7 +18,7 @@ describe('DisposableService', () => {
     const mockResponse = { email: 'test@example.com' };
     (fetchV2 as jest.Mock).mockResolvedValueOnce({ email: 'test@example.com' });
 
-    const service = new DisposableService({ mailService: MailServices.TEMPMAIL });
+    const service = new DisposableEmailHelper({ mailService: MailServices.TEMPMAIL });
     const email = await service.getMail();
 
     expect(fetchV2).toHaveBeenCalledWith(expect.any(String), expect.any(Object));
@@ -26,7 +26,7 @@ describe('DisposableService', () => {
   });
 
   it('should return a list of supported services', () => {
-    const service = new DisposableService({});
+    const service = new DisposableEmailHelper({});
     const services = service.getServices();
 
     expect(services).toEqual([

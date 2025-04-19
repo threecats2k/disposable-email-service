@@ -1,4 +1,4 @@
-import DisposableService, { DisposableServiceOptions } from './index';
+import { DisposableEmailHelper, DisposableServiceOptions } from './index';
 import fetchV2 from './lib/fetch-2.0';
 import { MailServices } from './utils/constant';
 
@@ -8,12 +8,12 @@ describe('DisposableService', () => {
   });
 
   it('should initialize with the default mail service', () => {
-    const service = new DisposableService({});
+    const service = new DisposableEmailHelper({});
     expect(service).toBeDefined();
   });
 
   it('should fetch real data', async () => {
-    const service = new DisposableService({ mailService: MailServices.TEMPMAIL });
+    const service = new DisposableEmailHelper({ mailService: MailServices.TEMPMAIL });
     const email = await service.getMail({
       'cache-control': 'no-cache',
       'accept': 'application/json, text/plain, */*',
@@ -31,7 +31,7 @@ describe('DisposableService', () => {
   });
 
   it('should fetch real data  mail 10m', async () => {
-    const service = new DisposableService({ mailService: MailServices.MAIL10MIN });
+    const service = new DisposableEmailHelper({ mailService: MailServices.MAIL10MIN });
     const email = await service.getMail();
     console.log(email);
     expect(email).toBeDefined();
