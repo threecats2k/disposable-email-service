@@ -57,3 +57,6 @@ env/keycloak.*.json
 src/schema.gql
 src/metadata.ts
 prisma/generator
+
+test.ts
+dist/test.js
