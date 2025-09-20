@@ -1,6 +1,6 @@
 {
   "name": "@threecats2k/disposable-email-service",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Library provide disposable email from Mail10M or TempMail",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,9 +18,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/threecats2k/disposable-email-service"
+    "url": "git+https://github.com/threecats2k/disposable-email-service.git"
   },
-
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -40,7 +39,10 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {
-      "^.+\\.ts?$": ["ts-jest",{}]
+      "^.+\\.ts?$": [
+        "ts-jest",
+        {}
+      ]
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec|e2e))\\.ts?$"
   }
