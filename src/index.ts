@@ -113,12 +113,9 @@ export class DisposableEmailHelper {
           subject = await page.evaluate((email) => {
             let result = "";
             document.querySelectorAll('#maillist tr').forEach((el) => {
-              console.debug(el);
               const from = el.querySelector('td:first-child')?.textContent ?? '';
-              console.debug('From:', from);
               if (from.includes(email)) {
                 result = el.querySelector('td:nth-child(2)')?.textContent ?? '';
-                alert(result);
               }
             });
             return result;
